@@ -1,23 +1,23 @@
-# ブログサイト 
+# Blog Site 
 
-React とか TypeScript とか使って仕上げました
+Built with React and TypeScript
 
-## できること一覧
+## What It Can Do
 
-- **ブログ書ける** - 
-- **リッチエディタ** - 
-- **プレビュー機能** - 
-- **日本語英語** - 
-- **ダークモード** - 
-- **検索機能** -
-- **スマホ対応** -
-- **SEO対策** -
+- **Blog Writing** - 
+- **Rich Editor** - 
+- **Live Preview** - 
+- **Japanese English** - 
+- **Dark Mode** - 
+- **Search Function** -
+- **Mobile Support** -
+- **SEO Optimization** -
 - **Firebase** -
-- **永続化** - 
+- **Data Persistence** - 
 
-## 使った技術たち 
+## Tech Stack 
 
-### フロントエンド
+### Frontend
 - **React 19.1.0** - 
 - **TypeScript** - 
 - **Vite** - 
@@ -25,98 +25,98 @@ React とか TypeScript とか使って仕上げました
 - **Zustand** - 
 - **React Router** - 
 
-### バックエンド
+### Backend
 - **Firebase Firestore** - 
 - **Firebase SDK** - 
 
-### その他
+### Other Tools
 - **@uiw/react-md-editor** - 
 - **React Markdown** - 
 - **Lucide React** - 
 - **React Helmet** - 
 - **date-fns** - 
 
-## フォルダ構成 
+## Project Structure 
 
 ```
 src/
-├── components/          # 部品たち
-│   ├── blog/           # ブログ関連の部品
-│   ├── layout/         # レイアウト部品
-│   └── ui/             # UI部品
-├── hooks/              # カスタムフック
-├── lib/                # 外部ライブラリ設定
-├── pages/              # ページたち
-├── services/           # API関連
-├── store/              # 状態管理
-├── types/              # TypeScript の型
-├── utils/              # 便利な関数
-└── data/               # データ
+├── components/          # Components
+│   ├── blog/           # Blog components
+│   ├── layout/         # Layout components
+│   └── ui/             # UI components
+├── hooks/              # Custom hooks
+├── lib/                # External library configs
+├── pages/              # Pages
+├── services/           # API related
+├── store/              # State management
+├── types/              # TypeScript types
+├── utils/              # Utility functions
+└── data/               # Data
 ```
 
-## 使い方 
+## How to Use 
 
-### 1. インストール
+### 1. Installation
 ```bash
 npm install
 ```
 
-### 2. Firebase 設定
-`.env.local` ファイル作って Firebase の設定入れる：
+### 2. Firebase Setup
+Create `.env.local` file and add Firebase config:
 
 ```env
-VITE_FIREBASE_API_KEY=あなたのAPIキー
-VITE_FIREBASE_AUTH_DOMAIN=あなたのプロジェクト.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=あなたのプロジェクトID
-VITE_FIREBASE_STORAGE_BUCKET=あなたのプロジェクト.appspot.com
-VITE_FIREBASE_MESSAGING_SENDER_ID=あなたのセンダーID
-VITE_FIREBASE_APP_ID=あなたのアプリID
+VITE_FIREBASE_API_KEY=your-api-key
+VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your-project-id
+VITE_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your-sender-id
+VITE_FIREBASE_APP_ID=your-app-id
 ```
 
-### 3. 起動
+### 3. Start
 ```bash
 npm run dev
 ```
 
-### 4. ビルド
+### 4. Build
 ```bash
 npm run build
 ```
 
-## 主な機能 
+## Main Features 
 
-### メインページ (/)
-- 記事一覧表示
-- 検索・フィルタリング
-- ページネーション
-- カテゴリ・タグ別表示
-- ブックマーク機能
+### Homepage (/)
+- Post listings
+- Search and filtering
+- Pagination
+- Category and tag display
+- Bookmark functionality
 
-### 記事詳細 (/blog/:slug)
-- マークダウンで記事表示
-- SEO 最適化
-- シェア機能
-- 関連記事表示
+### Post Details (/blog/:slug)
+- Markdown display
+- SEO optimization
+- Share functionality
+- Related posts
 
-## 今後やりたいこと 
+## Future Plans 
 
-- [ ] いいね機能
-- [ ] 多言語対応強化
-- [ ] 画像最適化
-- [ ] 全文検索
+- [ ] Like functionality
+- [ ] Enhanced multilingual support
+- [ ] Image optimization
+- [ ] Full-text search
 
-## 作った理由 
+## Why I Built This 
 
-プログラミング始めてまだ日は浅いけど、とにかく何か作ってみたかった！
-最初は HTML と CSS だけだったけど、だんだん JavaScript、React、TypeScript って順番覚えて
-気がついたらこんなに本格的なサイトができてた。
+I'm still pretty new to programming, but I really wanted to build something!
+Started with just HTML and CSS, then gradually learned JavaScript, React, and TypeScript.
+Before I knew it, I had created this pretty sophisticated site.
 
-Firebase とか使って本格的なデータベースも使えるようになったし、
-SEO とかパフォーマンスとかも考えて作ったから、結構本格的だと思う。
+Got the hang of Firebase for a real database, and even thought about SEO and performance.
+I think it turned out pretty professional!
 
-まだまだ改善したいところはあるけど、ひとまず形になって嬉しい！
+Still lots of room for improvement, but I'm happy with how it came together!
 
-## 連絡先 
+## Contact 
 
 **Maoto Mikami**
 - GitHub: [@Pealsh]
@@ -124,4 +124,4 @@ SEO とかパフォーマンスとかも考えて作ったから、結構本格�
 
 ---
 
-見てくれてありがとう！ 🙏
+Thanks for checking it out! 🙏
