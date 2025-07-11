@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { Calendar, Clock, Tag } from 'lucide-react';
 
 interface BlogPreviewProps {
@@ -72,9 +73,8 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
       {/* Content */}
       <div className="prose prose-lg dark:prose-invert max-w-none mb-8">
         <ReactMarkdown
+          rehypePlugins={[rehypeRaw]}
           components={{
-            // Allow HTML rendering for styled content
-            html: ({ node, ...props }) => <div {...props} />,
             // Custom image handling
             img: ({ node, ...props }) => (
               <img 
@@ -82,6 +82,14 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({
                 className="rounded-lg shadow-md max-w-full h-auto"
                 loading="lazy"
               />
+            ),
+            // Proper line break handling
+            p: ({ node, ...props }) => (
+              <p className="mb-4 leading-relaxed whitespace-pre-wrap" {...props} />
+            ),
+            // Break elements
+            br: ({ node, ...props }) => (
+              <br {...props} />
             ),
           }}
         >

@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Search, Sun, Moon, Laptop } from 'lucide-react';
+import { Home, Search, Sun, Moon, Laptop, ExternalLink } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
 import { useLanguage } from '../../hooks/useLanguage';
 import { useState } from 'react';
@@ -10,6 +10,9 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const { language, toggleLanguage, isTranslating } = useLanguage();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  
+  // 環境変数からポートフォリオURLを取得
+  const portfolioUrl = import.meta.env.VITE_PORTFOLIO_URL || 'https://your-portfolio-site.com';
 
   const getThemeIcon = () => {
     switch (theme) {
@@ -61,16 +64,15 @@ const Header = () => {
                 >
                   About
                 </Link>
-                <Link
-                  to="/profile"
-                  className={`font-poppins font-semibold uppercase text-sm transition-colors ${
-                    isActive('/profile') 
-                      ? 'text-primary-500' 
-                      : 'text-muted-foreground hover:text-foreground'
-                  }`}
+                <a
+                  href={portfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-poppins font-semibold uppercase text-sm transition-colors text-muted-foreground hover:text-foreground flex items-center justify-center space-x-1"
                 >
-                  Profile
-                </Link>
+                  <span>Profile</span>
+                  <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                </a>
               </nav>
             </div>
 
@@ -142,16 +144,15 @@ const Header = () => {
               >
                 About
               </Link>
-              <Link
-                to="/profile"
-                className={`font-poppins font-semibold uppercase text-sm transition-colors ${
-                  isActive('/profile') 
-                    ? 'text-primary-500' 
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
+              <a
+                href={portfolioUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-poppins font-semibold uppercase text-sm transition-colors text-muted-foreground hover:text-foreground flex items-center justify-center space-x-1"
               >
-                Profile
-              </Link>
+                <span>Profile</span>
+                <ExternalLink className="w-3 h-3 flex-shrink-0" />
+              </a>
             </nav>
           </div>
         </div>

@@ -79,7 +79,12 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 
   const handleImageUrlInsert = () => {
     if (imageUrl) {
-      const imageMarkdown = `![Image](${imageUrl})`;
+      // src/img/filename.png の形式に変換
+      let formattedUrl = imageUrl;
+      if (!imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
+        formattedUrl = `src/img/${imageUrl}`;
+      }
+      const imageMarkdown = `![Image](${formattedUrl})`;
       onChange(value + '\n\n' + imageMarkdown);
       setImageUrl('');
       setShowImageUpload(false);
@@ -99,10 +104,10 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         newText = `${value}*斜体のテキスト*`;
         break;
       case 'title':
-        newText = `${value}<span style="font-size: 2rem; font-weight: bold;">タイトルサイズ</span>`;
+        newText = `${value}\n\n# タイトルサイズ`;
         break;
       case 'subtitle':
-        newText = `${value}<span style="font-size: 1.5rem; font-weight: 600;">サブタイトルサイズ</span>`;
+        newText = `${value}\n\n## サブタイトルサイズ`;
         break;
       case 'color-red':
         newText = `${value}<span style="color: #ef4444; font-weight: 500;">赤いテキスト</span>`;
@@ -118,6 +123,9 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         break;
       case 'code':
         newText = `${value}\`コード\``;
+        break;
+      case 'image':
+        newText = `${value}\n\n![Image](src/img/example.png)`;
         break;
       default:
         return;
@@ -282,9 +290,23 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         <div className="flex items-center space-x-1">
           <button
             type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              insertFormatting('image');
+            }}
+            className="flex items-center space-x-1 px-3 py-2 bg-green-500 hover:bg-green-600 text-white rounded transition-colors"
+            title="画像を挿入 (src/img/example.png)"
+          >
+            <Image className="w-4 h-4" />
+            <span className="text-sm">画像挿入</span>
+          </button>
+          
+          <button
+            type="button"
             onClick={() => setShowImageUpload(!showImageUpload)}
             className="flex items-center space-x-1 px-3 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded transition-colors"
-            title="画像を挿入"
+            title="画像URLを挿入"
           >
             <Image className="w-4 h-4" />
             <span className="text-sm">画像URL</span>

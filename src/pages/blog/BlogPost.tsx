@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, Clock, ArrowLeft, Tag } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { useBlogStore } from '../../store/blogStore';
 import type { BlogPost as BlogPostType } from '../../types/blog';
 
@@ -11,22 +12,14 @@ const BlogPost = () => {
   const navigate = useNavigate();
   const [post, setPost] = useState<BlogPostType | null>(null);
   const [loading, setLoading] = useState(true);
-  const { posts, setPosts } = useBlogStore();
+  const { posts, loadPosts } = useBlogStore();
 
   useEffect(() => {
-    // LocalStorageから読み込み
+    // Firestoreからデータを読み込み
     if (posts.length === 0) {
-      const savedPosts = localStorage.getItem('blogPosts');
-      if (savedPosts) {
-        try {
-          const parsedPosts = JSON.parse(savedPosts);
-          setPosts(parsedPosts);
-        } catch (error) {
-          console.error('Failed to parse saved posts:', error);
-        }
-      }
+      loadPosts();
     }
-  }, [posts.length, setPosts]);
+  }, [posts.length, loadPosts]);
 
   useEffect(() => {
     const foundPost = posts.find(p => p.id === slug);
@@ -116,9 +109,8 @@ const BlogPost = () => {
         {/* Content */}
         <div className="prose prose-lg dark:prose-invert max-w-none mb-8">
           <ReactMarkdown
+            rehypePlugins={[rehypeRaw]}
             components={{
-              // Allow HTML rendering for styled content
-              html: ({ node, ...props }) => <div {...props} />,
               img: ({ node, ...props }) => (
                 <img 
                   {...props} 
@@ -136,7 +128,11 @@ const BlogPost = () => {
                 <h3 className="text-xl font-semibold mb-3 mt-5" {...props} />
               ),
               p: ({ node, ...props }) => (
-                <p className="mb-4 leading-relaxed" {...props} />
+                <p className="mb-4 leading-relaxed whitespace-pre-wrap" {...props} />
+              ),
+              // Break elements
+              br: ({ node, ...props }) => (
+                <br {...props} />
               ),
               blockquote: ({ node, ...props }) => (
                 <blockquote className="border-l-4 border-primary-500 pl-6 py-2 my-6 bg-muted/30 italic" {...props} />

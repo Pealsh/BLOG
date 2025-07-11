@@ -70,7 +70,7 @@ const Home = () => {
               {t.latestPosts}
             </h1>
             <p className="text-muted-foreground">
-              Discover articles about development, technology, and more.
+             Hi
             </p>
           </div>
 
@@ -95,7 +95,7 @@ const Home = () => {
               <div className="text-muted-foreground mb-4">
                 {filteredPosts.length === 0 && posts.length === 0 
                   ? t.noBlog
-                  : "フィルタに一致する投稿が見つかりません。"
+                  : "No posts found matching your filters."
                 }
               </div>
               {filteredPosts.length !== posts.length && (
@@ -103,7 +103,7 @@ const Home = () => {
                   onClick={() => window.location.reload()}
                   className="btn-primary"
                 >
-                  フィルタをリセット
+                  Reset filters
                 </button>
               )}
             </div>
