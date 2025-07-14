@@ -108,7 +108,9 @@ const Sidebar = () => {
               <Github className="w-4 h-4" />
             </a>
             <a
-              href="mailto:pengutobitai@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=pengutobitai@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-2 hover:bg-muted rounded-lg transition-colors"
             >
               <Mail className="w-4 h-4" />

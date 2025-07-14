@@ -124,7 +124,7 @@ const PostCard = ({ post }: PostCardProps) => {
             
             <Link
               to={`/blog/${post.id}`}
-              className="flex items-center justify-center w-10 h-60 bg-gradient-to-b from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary-500/30 group/button"
+              className="flex items-center justify-center w-10 h-60 bg-gradient-to-b from-primary-500 to-primary-600  text-white rounded-lg transition-all duration-300 hover:scale-105 group/button"
               title={t.goBlog}
               onClick={() => {
                 // ページ遷移後に最上部にスクロール

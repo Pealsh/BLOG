@@ -48,14 +48,16 @@ const Home = () => {
       </Helmet>
 
       {/* Hero Image */}
-      <div className="mb-8 -mt-8 relative h-64 md:h-80 lg:h-96">
+      <div className="mb-8 relative h-96 md:h-[32rem] lg:h-[40rem]" style={{ marginTop: '-4rem' }}>
         <div 
           className="h-full bg-gradient-to-br from-primary-500 to-primary-600 bg-cover bg-center bg-no-repeat absolute left-0 right-0"
           style={{
             backgroundImage: `url('src/img/IMG_0865.jpg')`,
             marginLeft: 'calc(-50vw + 50%)',
             marginRight: 'calc(-50vw + 50%)',
-            width: '100vw'
+            width: '100vw',
+            top: '-4rem',
+            height: 'calc(100% + 4rem)'
           }}
         >
           {/* 画像がない場合のフォールバック用グラデーション */}
@@ -65,14 +67,6 @@ const Home = () => {
       <div className="flex flex-col lg:flex-row gap-3">
         {/* Main Content */}
         <div className="flex-1 order-2 lg:order-1">
-          <div className="mb-8">
-            <h1 className="text-4xl font-poppins font-bold mb-4 text-gradient">
-              {t.latestPosts}
-            </h1>
-            <p className="text-muted-foreground">
-             Hi
-            </p>
-          </div>
 
           {currentPosts.length > 0 ? (
             <>

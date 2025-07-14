@@ -89,7 +89,9 @@ const About = () => {
                   <ExternalLink className="w-4 h-4 text-muted-foreground ml-auto" />
                 </a>
                 <a
-                  href="mailto:pengutobitai@gmail.com"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=pengutobitai@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center space-x-3 p-3 hover:bg-muted rounded-lg transition-colors"
                 >
                   <Mail className="w-5 h-5 text-muted-foreground" />

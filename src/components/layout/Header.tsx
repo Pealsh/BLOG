@@ -31,8 +31,8 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-4">
+      <header className="sticky top-0 z-50">
+        <div className="max-w-5xl mx-auto bg-background/70 backdrop-blur-sm border border-border rounded-b-lg px-4">
           <div className="flex items-center justify-between h-16">
             {/* Left side - Navigation */}
             <div className="flex items-center space-x-6">
